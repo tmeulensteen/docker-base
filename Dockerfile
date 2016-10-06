@@ -7,5 +7,5 @@ RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* 
         nano \
         unrar unzip \
     apt-get -y autoremove && \
-    apt-get -y clean && 
+    apt-get -y clean
 ENV LANG en_US.utf8
