@@ -7,6 +7,7 @@ RUN sed -i s/httpredir.debian.org/$APT_MIRROR/g /etc/apt/sources.list
 
 RUN apt-get update && apt-get install -y \
         apt-utils \
+        curl \
         nano \
         git && \
     apt-get -y autoremove && \
