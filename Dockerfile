@@ -1,9 +1,13 @@
 FROM debian:jessie
 MAINTAINER Tom Meulensteen
 
-RUN apt-get update && apt-get install -y locales \
-    && apt-get install -qy --force-yes \
-        nano && \
+# Allow replacing httpredir mirror
+ARG APT_MIRROR=httpredir.debian.org
+RUN sed -i s/httpredir.debian.org/$APT_MIRROR/g /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -y \
+        apt-utils \
+        nano \
         git && \
     apt-get -y autoremove && \
     apt-get -y clean
